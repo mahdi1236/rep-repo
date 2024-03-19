@@ -1,0 +1,29 @@
+.container {
+    margin: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  .active-cell {
+    border: 2px solid red;
+}
+.new-table {
+  border-collapse: collapse;
+  border: 1px solid #000; /* Couleur et épaisseur de la bordure */
+}
+
+.new-table th, .new-table td {
+  border: 1px solid #000; /* Couleur et épaisseur de la bordure pour les cellules */
+  padding: 8px; /* Espacement interne des cellules */
+}

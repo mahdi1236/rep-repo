@@ -1,0 +1,62 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary" (click)="creerTableau()">Créer un nouveau tableau</button>
+        <!-- Ajoutez le bouton ci-dessus -->
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Simple Table</h4>
+            <p class="card-category">Here is a subtitle for this table</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <!-- Tableau existant -->
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Phase</th>
+                <th>Etape</th>
+                <th>Sous-Etape</th>
+                <th>Charge sur place</th>
+                <th>Charge en ligne</th>
+                <th>Durée (jrs)</th>
+                <th>Durée (M)</th>
+                <th>Livrable</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of rows; let i = index">
+                <td contenteditable="true" (blur)="updateCellValue($event, i, 'phase')"  >{{ row.phase }}</td>
+                <td contenteditable="true" (blur)="updateCellValue($event, i, 'etape')" >{{ row.etape }}</td>
+                <td contenteditable="true" (blur)="updateCellValue($event, i, 'sousEtape')" >{{ row.sousEtape }}</td>
+                <td contenteditable="true" (blur)="updateCellValue($event, i, 'chargeSurPlace')" >{{ row.chargeSurPlace }}</td>
+                <td contenteditable="true" (blur)="updateCellValue($event, i, 'chargeEnLigne')">{{ row.chargeEnLigne }}</td>
+                <td contenteditable="true" (blur)="updateCellValue($event, i, 'dureeJrs')">{{ row.dureeJrs }}</td>
+                <td contenteditable="true" (blur)="updateCellValue($event, i, 'dureeM')">{{ row.dureeM }}</td>
+                <td contenteditable="true" (blur)="updateCellValue($event, i, 'livrable')">{{ row.livrable }}</td>
+              </tr>
+              <tr *ngIf="showSpecialRow">
+                <td colspan="8">
+                    <span contenteditable="true" (blur)="updateCellValue(rows.length - 1, 'phase')">Nouvelle phase</span>
+                </td>
+            </tr>
+            
+            </tbody>
+          </table>
+          <button class="btn btn-primary" (click)="addRow()">Ajouter une ligne</button>
+          <button class="btn btn-primary" (click)="addCustomRow(specialRowIndex)">Ajouter une étape</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
